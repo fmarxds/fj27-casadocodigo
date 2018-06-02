@@ -4,26 +4,27 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="<c:url value="/resources/bootstrap.css"/>" rel="stylesheet" type="text/css"/>
 		<title>Cadastro de Livros</title>
 	</head>
 	<body>
 		<c:url value="/products" var="url"/>
 		<form action="${url}" method="post">
-			<div>
-				<label for="title">Título</label>
-				<input name="title" id="title" type="text"/>
-			</div>
-			<div>
-				<label for="description">Descrição</label>
-				<textarea name="description" id="description" rows="10" cols="20"></textarea>
-			</div>
-			<div>
-				<label for="numberOfPages">Número de Páginas</label>
-				<input name="numberOfPages" id="numberOfPages" type="text"/>
-			</div>
-			<div>
-				<input type="submit" value="Salvar"/>
-			</div>
+			<table class="table">
+				<tr>
+					<td><label for="title">Título</label></td>
+					<td><input name="title" id="title" type="text"/></td>
+				</tr>
+				<tr>
+					<td><label for="description">Descrição</label></td>
+					<td><textarea name="description" id="description" rows="10" cols="20"></textarea></td>
+				</tr>
+				<tr>
+					<td><label for="numberOfPages">Número de Páginas</label></td>
+					<td><input name="numberOfPages" id="numberOfPages" type="text"/></td>
+				</tr>				
+			</table>
+			<input type="submit" value="Salvar"/>
 		</form>
 	</body>
 </html>
