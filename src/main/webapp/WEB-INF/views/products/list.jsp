@@ -17,7 +17,7 @@
 			<display:column property="numberOfPages" title="Páginas"/>
 			<display:column title="Preços">
 				<c:forEach items="${book.prices}" var="price">
-					${price.bookType}: ${price.value}<br>
+					${price.bookType}: R$ ${price.value}<br>
 				</c:forEach>
 			</display:column>
 		</display:table>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -9,19 +11,27 @@
 	</head>
 	<body>
 		<c:url value="/products" var="url"/>
-		<form action="${url}" method="post">
+		<form:form action="${spring:mvcUrl('PC#save').build()}" method="post" commandName="product">
 			<table class="table">
 				<tr>
 					<td><label for="title">Título</label></td>
-					<td><input name="title" id="title" type="text"/></td>
+					<td><form:input path="title" id="title" type="text"/></td>
+					<td><form:errors path="title"/></td>
 				</tr>
 				<tr>
 					<td><label for="description">Descrição</label></td>
-					<td><textarea name="description" id="description" rows="10" cols="20"></textarea></td>
+					<td><form:textarea path="description" id="description" rows="10" cols="20"/></td>
+					<td><form:errors path="description"/></td>
 				</tr>
 				<tr>
 					<td><label for="numberOfPages">Número de Páginas</label></td>
-					<td><input name="numberOfPages" id="numberOfPages" type="text"/></td>
+					<td><form:input path="numberOfPages" id="numberOfPages" type="text"/></td>
+					<td><form:errors path="numberOfPages"/></td>
+				</tr>
+				<tr>
+					<td><label for="releaseDate">Data de Lançamento</label></td>
+					<td><form:input path="releaseDate" type="date" id="releaseDate"/></td>
+					<td><form:errors path="releaseDate"/></td>
 				</tr>
 				<c:forEach items="${types}" var="bookType" varStatus="status">
 					<tr>
@@ -32,6 +42,6 @@
 				</c:forEach>		
 			</table>
 			<input type="submit" value="Salvar"/>
-		</form>
+		</form:form>
 	</body>
 </html>
