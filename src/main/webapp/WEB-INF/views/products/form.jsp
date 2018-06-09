@@ -22,7 +22,14 @@
 				<tr>
 					<td><label for="numberOfPages">Número de Páginas</label></td>
 					<td><input name="numberOfPages" id="numberOfPages" type="text"/></td>
-				</tr>				
+				</tr>
+				<c:forEach items="${types}" var="bookType" varStatus="status">
+					<tr>
+						<td><label for="price_${bookType}">${bookType}</label></td>
+						<td><input name="prices[${status.index}].value" type="text" id="price_${bookType}"/></td>
+						<td><input name="prices[${status.index}].bookType" type="hidden" value="${bookType}"/></td>
+					</tr>
+				</c:forEach>		
 			</table>
 			<input type="submit" value="Salvar"/>
 		</form>
