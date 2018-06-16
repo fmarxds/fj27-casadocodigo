@@ -10,9 +10,14 @@
 	</head>
 	<body>
 		${sucesso}
+		<h3 style="float: left; position: relative; left: 60px;">Itens no Carrinho: ${shoppingCart.quantity} - Subtotal: ${shoppingCart.total}</h3>
+		<h3 style="float: right; position: relative; right: 60px;"><a href="/casadocodigo/shopping">Finalizar Compras</a></h3>
+		<main class="container">
 		<display:table name="products" id="book" class="table">
 			<display:column property="id" title="ID"/>
-			<display:column property="title" title="Título"/>
+			<display:column title="Título">
+				<a href="/casadocodigo/products/${book.id}">${book.title}</a>
+			</display:column>
 			<display:column property="description" title="Descrição"/>
 			<display:column property="numberOfPages" title="Páginas"/>
 			<display:column title="Preços">
@@ -21,5 +26,6 @@
 				</c:forEach>
 			</display:column>
 		</display:table>
+		</main>
 	</body>
 </html>

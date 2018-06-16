@@ -1,5 +1,8 @@
 package br.com.casadocodigo.loja.conf;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -19,6 +22,12 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	protected String[] getServletMappings() {
 		// Mapeamento padrão de URL que será gerenciado pelo Spring
 		return new String[] {"/"};
+	}
+	
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
+		// Permite upload de arquivos
+		registration.setMultipartConfig(new MultipartConfigElement(""));
 	}
 
 }

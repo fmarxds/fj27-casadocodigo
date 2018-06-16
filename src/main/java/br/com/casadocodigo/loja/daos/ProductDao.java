@@ -25,4 +25,10 @@ public class ProductDao {
 		return manager.createQuery("select distinct p from Product p join fetch p.prices ", Product.class).getResultList();
 	}
 
+	public Product find(Integer id) {
+		return manager.createQuery("SELECT DISTINCT p FROM Product p JOIN FETCH p.prices WHERE p.id = :id", Product.class)
+				.setParameter("id", id)
+				.getSingleResult();
+	}
+
 }

@@ -11,7 +11,8 @@
 	</head>
 	<body>
 		<c:url value="/products" var="url"/>
-		<form:form action="${spring:mvcUrl('PC#save').build()}" method="post" commandName="product">
+		<main class="container">
+		<form:form action="${spring:mvcUrl('PC#save').build()}" method="post" commandName="product" enctype="multipart/form-data">
 			<table class="table">
 				<tr>
 					<td><label for="title">Título</label></td>
@@ -29,6 +30,11 @@
 					<td><form:errors path="numberOfPages"/></td>
 				</tr>
 				<tr>
+					<td><label for="summary">Sumário do Livro</label></td>
+					<td><input name="summary" id="summary" type="file"/></td>
+					<td><form:errors path="summaryPath"/></td>
+				</tr>
+				<tr>
 					<td><label for="releaseDate">Data de Lançamento</label></td>
 					<td><form:input path="releaseDate" type="date" id="releaseDate"/></td>
 					<td><form:errors path="releaseDate"/></td>
@@ -43,5 +49,6 @@
 			</table>
 			<input type="submit" value="Salvar"/>
 		</form:form>
+		</main>
 	</body>
 </html>
